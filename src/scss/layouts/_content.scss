@@ -1,0 +1,89 @@
+@import "base";
+
+section.content {
+    header {
+        margin-bottom: 80px;
+
+        h1 {
+            font-size: 36px;
+            font-weight: $regular;
+            line-height: 36px;
+            margin-bottom: 10px;
+            color: $black;
+        }
+
+        @media only screen and (max-width: 959px) {
+            h1 {
+                font-size: 30px;
+            }
+        }
+
+        h2 {
+            font-size: 16px;
+            font-weight: $light;
+        }
+    }
+
+    div.list {
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 40px;
+        color: $accent;
+   
+        li {
+            b {
+                font-weight: 400;
+            }   
+
+            a {
+                text-decoration: none;
+                color: $accent;
+            }
+
+            &.li-mail {
+                margin-top: 20px;
+            }
+        }
+    }
+
+    span.icon {
+        display: inline-block;
+        width: 24px;
+        height: 24px;   
+        margin-right: 10px;
+        vertical-align: middle;
+
+        &.icon-github {
+            @include retina('/images/icon-github.png', 2, 24px 24px, center center no-repeat);
+        }
+
+        &.icon-twitter {
+            @include retina('/images/icon-twitter.png', 2, 24px 24px, center center no-repeat);
+        }
+
+        &.icon-telegram {
+            @include retina('/images/icon-telegram.png', 2, 24px 24px, center center no-repeat);
+        }
+
+        &.icon-medium {
+            @include retina('/images/icon-medium.png', 2, 24px 24px, center center no-repeat);
+        }
+
+        &.icon-mail {
+            @include retina('/images/icon-mail.png', 2, 24px 24px, center center no-repeat);
+        }
+    }
+}
+
+div.me {
+    margin-left: 20px;
+    width: 305px;
+    height: 446px;
+    @include retina('/images/me.png', 2, 305px 446px, center center no-repeat);
+}
+
+@media only screen and (max-width: 959px) {
+    div.me {
+        display: none;
+    }
+}
