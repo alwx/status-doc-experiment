@@ -7,4 +7,9 @@
     (fn []
       [:div.app
        [:section.content
-        "Code will go here"]])))
+        [:pre
+         [:code.javascript
+          "
+          var a = 0;
+          var b = a + 2; //result
+          "]]]])))

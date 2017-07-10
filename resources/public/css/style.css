@@ -11,7 +11,11 @@ div.app {
     margin-top: 40px;
 }
 
+code.hljs {
+    background: #ffffff;
+    border: 0px;
+}
+
 section.content {
     max-width: 50%;
-    background: blue;
 }
