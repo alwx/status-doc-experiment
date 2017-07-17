@@ -8,6 +8,6 @@
     db/app-db))
 
 (reg-event-db
-  :set-active-page
-  (fn [db [_ active-page]]
-    (assoc db :active-page active-page)))
+  :set-token
+  (fn [db [_ token]]
+    (assoc db :token token)))

@@ -2,6 +2,6 @@
   (:require [re-frame.core :refer [reg-sub]]))
 
 (reg-sub
-  :get-active-page
+  :get-token
   (fn [db _]
-    (get db :active-page)))
+    (get db :token)))

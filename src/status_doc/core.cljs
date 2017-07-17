@@ -1,14 +1,16 @@
 (ns status-doc.core
   (:require [reagent.core :as r]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]
-            [status-doc.scenes.page :as page]
+            [status-doc.scenes.main :as main]
             [status-doc.events.core]
-            [status-doc.subs.core]))
+            [status-doc.subs.core]
+            [status-doc.routes :as routes]))
 
 (defn app-root []
-  (r/render [page/page-scene] (.getElementById js/document "app")))
+  (r/render [main/main-scene] (.getElementById js/document "app")))
 
 (defn init []
+  (routes/app-routes)
   (dispatch-sync [:initialize-db])
   (app-root))
 

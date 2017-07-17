@@ -1,6 +1,19 @@
-body {
-    background-color: #ffffff;
-    font-family: "Fira Sans", sans-serif;
+a {
+    text-decoration: none;
+    cursor: pointer;
+    background: #fff;
+    padding-left: 4px;
+    padding-right: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #4957b8;
+    font-weight: 600;
+}
+
+a.active {
+    background: #4957b8;
+    border: 1px solid #4957b8;
+    color: #ffffff;
 }
 
 div.app {
@@ -12,10 +25,18 @@ div.app {
 }
 
 code.hljs {
-    background: #ffffff;
-    border: 0px;
+    background: #F1F1F1;
+    padding: 20px;
 }
 
-section.content {
-    max-width: 50%;
+div.doc {
+    padding: 0 20px;
+}
+
+h1 {
+    font-family: monospace;
+}
+
+h2 {
+    font-size: 17px;
 }
