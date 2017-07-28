@@ -1,4 +1,5 @@
 (ns status-doc.db)
 
 (def app-db
-  {:active-page 0})
+  {:snippet nil
+   :token   nil})

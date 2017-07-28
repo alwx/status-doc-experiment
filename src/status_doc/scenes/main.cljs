@@ -1,13 +1,14 @@
 (ns status-doc.scenes.main
-  (:require-macros [status-doc.web :refer [defsnippet defdocs]])
+  (:require-macros [status-doc.web :refer [defsnippets defdocs]])
   (:require [reagent.core :as r]
             [re-frame.core :refer [subscribe dispatch]]
             [clojure.string :as string]
             [clojure.string :as str]))
 
-(defsnippet snippet-basic "snippet-basic")
+(defsnippets snippets ["snippet-basic"])
 
-(defdocs docs ["command"
+(defdocs docs ["snippet-basic"
+               "command"
                "command/name"])
 
 (defn linkify [js token]
@@ -28,6 +29,6 @@
        [:section.content
         [:pre
          [:code.javascript
-          {:dangerouslySetInnerHTML {:__html (linkify snippet-basic @token)}}]]
+          {:dangerouslySetInnerHTML {:__html (linkify (get snippets "snippet-basic") @token)}}]]
         [:div.doc
          {:dangerouslySetInnerHTML {:__html (get docs @token)}}]]])))

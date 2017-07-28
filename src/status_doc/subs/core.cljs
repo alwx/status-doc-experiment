@@ -5,3 +5,8 @@
   :get-token
   (fn [db _]
     (get db :token)))
+
+(reg-sub
+  :get-snippet
+  (fn [db _]
+    (get db :snippet)))
