@@ -6,7 +6,7 @@
   [symbol-name js-files]
   `(def ~symbol-name
      ~(->> js-files
-           (map #(vector % (-> (str "snippets/" % ".js")
+           (map #(vector % (-> (str "snippets/" % ".snippet")
                                (resource)
                                (slurp))))
            (into {}))))

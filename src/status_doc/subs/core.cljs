@@ -2,11 +2,21 @@
   (:require [re-frame.core :refer [reg-sub]]))
 
 (reg-sub
-  :get-token
-  (fn [db _]
-    (get db :token)))
+ :get-page-id
+ (fn [db _]
+   (get-in db [:page :id])))
 
 (reg-sub
-  :get-snippet
-  (fn [db _]
-    (get db :snippet)))
+ :get-page-params
+ (fn [db _]
+   (get-in db [:page :params])))
+
+(reg-sub
+ :get-token
+ (fn [db _]
+   (get db :token)))
+
+(reg-sub
+ :get-snippet
+ (fn [db _]
+   (get db :snippet)))

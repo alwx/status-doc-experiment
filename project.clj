@@ -10,7 +10,8 @@
                  [org.clojure/clojurescript "1.9.229"]
                  [reagent "0.6.0"]
                  [re-frame "0.8.0"]
-                 [markdown-clj "0.9.99"]]
+                 [markdown-clj "0.9.99"]
+                 [secretary "1.2.3"]]
 
   :plugins [[lein-figwheel "0.5.10"]
             [lein-cljsbuild "1.1.5" :exclusions [[org.clojure/clojure]]]]

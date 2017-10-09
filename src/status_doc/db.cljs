@@ -1,5 +1,7 @@
 (ns status-doc.db)
 
 (def app-db
-  {:snippet nil
+  {:page    {:id     :index
+             :params {}}
+   :snippet nil
    :token   nil})
