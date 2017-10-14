@@ -12,8 +12,8 @@
 (defroute "/" {:as params}
   (re-frame/dispatch [:set-page :index]))
 
-(defroute "/snippet/:name" {:as params}
-  (re-frame/dispatch [:set-page :snippet params]))
+(defroute "/guides/:name" {:as params}
+  (re-frame/dispatch [:set-page :guide params]))
 
 (defn app-routes []
   (doto (History.)
