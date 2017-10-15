@@ -75,11 +75,19 @@ section.content h1 {
     padding: 0 16px;
 }
 
-section.content p {
+section.content p, section.content h1, section.content h2,
+section.content h3, section.content h4, section.content h5,
+section.ul, section.ol {
     padding: 0 16px;
 }
 
-code.hljs {
+section.content code {
+    background: #eef2f5;
+    border: 0;
+    border-radius: 2px;
+}
+
+section.content code.hljs {
     background: #eef2f5;
     border: 0;
     padding: 16px;

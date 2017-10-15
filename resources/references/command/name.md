@@ -1,5 +1,3 @@
-# command / name
-
 The name of your command. Should consist of letters and digits. Special symbols are allowed (except `/` and `@`), 
 but it's not recommended to use them because users can execute commands by typing their names manually.
 

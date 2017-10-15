@@ -37,3 +37,14 @@
                          (slurp)
                          (md/md-to-html-string-with-meta :replacement-transformers guides-transformers))]))
            (into {}))))
+
+(defmacro defreferences
+  [symbol-name doc-files]
+  `(defonce ~symbol-name
+            ~(->> doc-files
+                  (map (fn [f]
+                         [f (-> (str "references/" f ".md")
+                                (resource)
+                                (slurp)
+                                (md/md-to-html-string))]))
+                  (into {}))))

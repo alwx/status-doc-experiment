@@ -15,6 +15,12 @@
 (defroute "/guides/:name" {:as params}
   (re-frame/dispatch [:set-page :guide params]))
 
+(defroute "/guides/:name/:ref" {:as params}
+  (re-frame/dispatch [:set-page :guide params]))
+
+(defroute "/ref/:name" {:as params}
+  (re-frame/dispatch [:set-page :reference params]))
+
 (defn app-routes []
   (doto (History.)
     (events/listen

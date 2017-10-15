@@ -1,7 +1,8 @@
 (ns status-doc.scenes.root
   (:require [re-frame.core :as re-frame]
             [status-doc.scenes.index :as index-scene]
-            [status-doc.scenes.guide :as guide-scene]))
+            [status-doc.scenes.guide :as guide-scene]
+            [status-doc.scenes.reference :as reference-scene]))
 
 (defn logo []
   [:div.container
@@ -19,4 +20,5 @@
        [:div.container
         (case @page-id
           :index [index-scene/scene]
-          :guide [guide-scene/scene])]])))
+          :guide [guide-scene/scene]
+          :reference [reference-scene/scene])]])))
