@@ -3,7 +3,8 @@
 
 
 (defn scene []
-  [:ul
-   (for [[k {:keys [metadata]}] dict/guides]
-     [:li
-      [:a {:href (str "#/guides/" k)} (-> metadata :title first)]])])
+  [:section.content
+   [:ul
+    (for [[k {:keys [metadata]}] dict/guides]
+      [:li
+       [:a {:href (str "#/guides/" k)} (-> metadata :title first)]])]])

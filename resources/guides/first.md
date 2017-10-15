@@ -1,7 +1,7 @@
-Title: First guide
+Title: Your first "Hello World" bot
 
-Okay, let's go.
+Lets start with implementing primitive and basic bot that just responds with "Hello World" when you call a `/hello` command.
 
 ![snippets/basic]
 
-Are you happy?
+Now deploy this bot to Status.

@@ -6,9 +6,15 @@
 
 (defn scene []
   (let [params (re-frame/subscribe [:get-page-params])]
-    (fn []
-      (let [{:keys [metadata html]} (get dict/guides (:name @params))]
-        [:section.content
-         [:h1 (-> metadata :title first)]
-         [:div.doc
-          {:dangerouslySetInnerHTML {:__html html}}]]))))
+    (reagent/create-class
+     {:component-did-mount
+      (fn []
+        (.initHighlighting js/hljs))
+
+      :reagent-render
+      (fn []
+        (let [{:keys [metadata html]} (get dict/guides (:name @params))]
+          [:section.content
+           [:h1 (-> metadata :title first)]
+           [:div.doc
+            {:dangerouslySetInnerHTML {:__html html}}]]))})))

@@ -9,7 +9,7 @@
 
 (re-frame/reg-event-db
  :set-page
- (fn [_ [_ id params]]
+ (fn [db [_ id params]]
    (assoc db :page {:id     id
                     :params params})))
 
