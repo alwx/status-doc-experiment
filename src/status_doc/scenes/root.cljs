@@ -21,4 +21,6 @@
         (case @page-id
           :index [index-scene/scene]
           :guide [guide-scene/scene]
-          :reference [reference-scene/scene])]])))
+          :reference [reference-scene/scene])]
+       (when (= @page-id :guide)
+         [guide-scene/ref-popup])])))

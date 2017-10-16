@@ -6,5 +6,6 @@
   [:section.content
    [:ul
     (for [[k {:keys [metadata]}] dict/guides]
+      ^{:key (str "guide-" k)}
       [:li
        [:a {:href (str "#/guides/" k)} (-> metadata :title first)]])]])
