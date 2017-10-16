@@ -15,6 +15,9 @@
       (fn []
         (let [{:keys [metadata html]} (get dict/guides (:name @params))]
           [:section.content
-           [:h1 (-> metadata :title first)]
+           [:div.title
+            [:a {:href "/#"}
+             [:img {:src "/img/back.svg"}]]
+            [:h1 (-> metadata :title first)]]
            [:div.doc
             {:dangerouslySetInnerHTML {:__html html}}]]))})))

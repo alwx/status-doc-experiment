@@ -17,6 +17,9 @@
                        (string/replace #"\+" "/"))
               html (get dict/refs name)]
           [:section.content
-           [:h1 name]
+           [:div.title
+            [:a {:href "/#"}
+             [:img {:src "/img/back.svg"}]]
+            [:h1 name]]
            [:div.doc
             {:dangerouslySetInnerHTML {:__html html}}]]))})))
