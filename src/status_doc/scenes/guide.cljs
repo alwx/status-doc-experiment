@@ -29,11 +29,15 @@
   (let [params (re-frame/subscribe [:get-page-params])]
     (fn []
       (let [{params-name :name
-             params-ref  :ref} @params
-            html (get dict/refs (string/replace params-ref #"\+" "/"))]
-        [:div.popup-container
-         [:div.popup.container
-          [:section.content
-           [:h1 params-ref]
-           [:div.doc
-            {:dangerouslySetInnerHTML {:__html html}}]]]]))))
+             params-ref  :ref} @params]
+        (let [html (or (get dict/refs (string/replace params-ref #"\+" "/"))
+                       "<p>No description</p>")]
+          [:div.popup-container
+           [:div.popup.container
+            [:section.content
+             [:div.title
+              [:h1 (string/replace params-ref #"\+" "/")]
+              [:a {:href (str "/#/guides/" params-name)}
+               [:img {:src "/img/close.svg"}]]]
+             [:div.doc
+              {:dangerouslySetInnerHTML {:__html html}}]]]])))))

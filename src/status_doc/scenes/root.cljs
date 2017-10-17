@@ -13,14 +13,17 @@
       [:span.logo__text__greyed "Developer Center"]]]]])
 
 (defn scene []
-  (let [page-id (re-frame/subscribe [:get-page-id])]
+  (let [page-id (re-frame/subscribe [:get-page-id])
+        params  (re-frame/subscribe [:get-page-params])]
     (fn []
-      [:div
-       [logo]
-       [:div.container
-        (case @page-id
-          :index [index-scene/scene]
-          :guide [guide-scene/scene]
-          :reference [reference-scene/scene])]
-       (when (= @page-id :guide)
-         [guide-scene/ref-popup])])))
+      (let [popup-opened? (and (= @page-id :guide)
+                               (:ref @params))]
+        [:div
+         [logo]
+         [:div.container
+          (case @page-id
+            :index [index-scene/scene]
+            :guide [guide-scene/scene]
+            :reference [reference-scene/scene])]
+         (when popup-opened?
+           [guide-scene/ref-popup])]))))
