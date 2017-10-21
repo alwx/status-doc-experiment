@@ -5,9 +5,9 @@
             [markdown.transformers :as md-transformers]))
 
 (defn read-snippet [name]
-  (-> (str "snippets/" name ".snippet")
-      (resource)
-      (slurp)))
+  (some-> (str "snippets/" name ".snippet")
+          (resource)
+          (slurp)))
 
 (defn transform-snippet [snippet]
   (string/replace snippet
@@ -23,9 +23,9 @@
                    #"\!\[snippets\/(.*)]"
                    (fn [res]
                      (str "<pre><code class=\"javascript\">"
-                          (-> (res 1)
-                              (read-snippet)
-                              (transform-snippet))
+                          (some-> (res 1)
+                                  (read-snippet)
+                                  (transform-snippet))
                           "</code></pre>")))
    state])
 
@@ -35,23 +35,22 @@
   [symbol-name doc-files]
   `(defonce ~symbol-name
             ~(->> doc-files
-                  (map (fn [f]
-                         [f (-> (str "guides/" f ".md")
-                                (resource)
-                                (slurp)
-                                (md/md-to-html-string-with-meta
-                                 :replacement-transformers guides-transformers))])))))
+                  (mapv (fn [id]
+                          [id (some-> (str "guides/" id ".md")
+                                      (resource)
+                                      (slurp)
+                                      (md/md-to-html-string-with-meta
+                                       :replacement-transformers guides-transformers))])))))
 
 (defn- load-refs
   [link-prefix refs]
   (->> refs
-       (map (fn [{:keys [id children] :as r}]
-              [id (merge r {:html     (-> (str "references" (str link-prefix id) ".md")
-                                          (resource)
-                                          (slurp)
-                                          (md/md-to-html-string))
-                            :children (load-refs (str link-prefix id "/") children)})]))
-       (into {})))
+       (mapv (fn [{:keys [id children] :as r}]
+               [id (merge r {:html     (some-> (str "references" (str link-prefix id) ".md")
+                                               (resource)
+                                               (slurp)
+                                               (md/md-to-html-string))
+                             :children (load-refs (str link-prefix id "/") children)})]))))
 
 (defmacro defrefs
   [symbol-name doc-files]

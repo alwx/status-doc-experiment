@@ -26,4 +26,4 @@
             :guide [guide-scene/scene]
             :reference [reference-scene/scene])]
          (when popup-opened?
-           [guide-scene/ref-popup])]))))
+           [reference-scene/ref-popup])]))))
