@@ -40,16 +40,19 @@
                                 (resource)
                                 (slurp)
                                 (md/md-to-html-string-with-meta
-                                 :replacement-transformers guides-transformers))]))
-                  (into {}))))
+                                 :replacement-transformers guides-transformers))])))))
 
-(defmacro defreferences
+(defn- load-refs
+  [link-prefix refs]
+  (->> refs
+       (map (fn [{:keys [id children] :as r}]
+              [id (merge r {:html     (-> (str "references" (str link-prefix id) ".md")
+                                          (resource)
+                                          (slurp)
+                                          (md/md-to-html-string))
+                            :children (load-refs (str link-prefix id "/") children)})]))
+       (into {})))
+
+(defmacro defrefs
   [symbol-name doc-files]
-  `(defonce ~symbol-name
-            ~(->> doc-files
-                  (map (fn [f]
-                         [f (-> (str "references/" f ".md")
-                                (resource)
-                                (slurp)
-                                (md/md-to-html-string))]))
-                  (into {}))))
+  `(defonce ~symbol-name ~(load-refs "/" doc-files)))

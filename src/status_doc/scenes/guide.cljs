@@ -16,14 +16,13 @@
         (let [{params-name :name} @params
               {:keys [metadata html]} (get dict/guides params-name)
               html (string/replace html #"%ref-link%" (str "guides/" params-name))]
-          [:div
-           [:section.content
-            [:div.title
-             [:a {:href "/#"}
-              [:img {:src "/img/back.svg"}]]
-             [:h1 (-> metadata :title first)]]
-            [:div.doc
-             {:dangerouslySetInnerHTML {:__html html}}]]]))})))
+          [:section.content
+           [:div.title
+            [:a {:href "/#"}
+             [:img {:src "/img/back.svg"}]]
+            [:h1 (-> metadata :title first)]]
+           [:div.doc
+            {:dangerouslySetInnerHTML {:__html html}}]]))})))
 
 (defn ref-popup []
   (let [params (re-frame/subscribe [:get-page-params])]
