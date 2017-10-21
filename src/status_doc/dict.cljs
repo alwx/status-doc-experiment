@@ -18,4 +18,13 @@
 (defrefs refs [{:id       "command"
                 :children [{:id "name"}
                            {:id "title"}
-                           {:id "description"}]}])
+                           {:id "description"}]}
+               {:id "status-dev-cli"
+                :children [{:id "scan"}
+                           {:id "add"}
+                           {:id "remove"}
+                           {:id "watch"}
+                           {:id "refresh"}
+                           {:id "switch-node"}
+                           {:id "list"}
+                           {:id "log"}]}])

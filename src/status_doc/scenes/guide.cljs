@@ -12,7 +12,8 @@
     (reagent/create-class
      {:component-did-mount
       (fn []
-        (.initHighlighting js/hljs))
+        (doseq [el (array-seq (.getElementsByClassName js/document "code-block"))]
+          (.highlightBlock js/hljs el)))
 
       :reagent-render
       (fn []

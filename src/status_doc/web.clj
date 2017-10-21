@@ -20,9 +20,9 @@
 
 (defn include-snippets [text state]
   [(string/replace text
-                   #"\!\[snippets\/(.*)]"
+                   #"\!\[snippets\/(\S*)\s(\S*)]"
                    (fn [res]
-                     (str "<pre><code class=\"javascript\">"
+                     (str "<pre><code class=\"code-block " (res 2) "\">"
                           (some-> (res 1)
                                   (read-snippet)
                                   (transform-snippet))
