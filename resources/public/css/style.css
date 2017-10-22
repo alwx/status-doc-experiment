@@ -80,11 +80,26 @@ header a.logo span.logo__text span.logo__text__greyed {
     margin-left: 6px;
 }
 
+footer {
+    margin: 30px 0;
+    padding: 16px 16px;
+    border-top: 1px solid #eaecef;
+}
+
+footer div.copyright {
+    color: #d7d9dc;
+}
+
+footer div.copyright p {
+    margin: 0;
+}
+
 section.content div.title {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: flex-start;
+    margin-bottom: 2rem;
 }
 
 section.content div.title img {
@@ -96,12 +111,18 @@ section.content div.title img {
 section.content div.title h1 {
     line-height: 32px;
     padding: 0;
+    margin: 0;
 }
 
-section.content p, section.content h1, section.content h2,
+section.content p, section.content h1,
 section.content h3, section.content h4, section.content h5,
 section.content ul, section.content ol {
     padding: 0 16px;
+}
+
+section.content h2 {
+    border-bottom: 1px solid #eaecef;
+    margin: 3rem 16px 16px 16px;
 }
 
 section.content ul {
@@ -125,11 +146,12 @@ section.content code.hljs {
 div.gray-column {
     background: #eef2f5;
     border-radius: 10px;
-    padding: 24px;
+    padding: 16px;
 }
 
 div.gray-column h1 {
     padding: 0;
+    margin: 0 0 16px 0;
 }
 
 div.gray-column ul {
@@ -159,7 +181,7 @@ div.gray-column ul li.level-3 {
     margin-left: 48px;
 }
 
-code a {
+pre code a {
     text-decoration: none;
     cursor: pointer;
     background: #fff;
@@ -170,7 +192,7 @@ code a {
     font-weight: 600;
 }
 
-code a.active {
+pre code a.active {
     background: #4957b8;
     border: 1px solid #4957b8;
     color: #ffffff;

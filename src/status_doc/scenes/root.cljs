@@ -4,13 +4,21 @@
             [status-doc.scenes.guide :as guide-scene]
             [status-doc.scenes.reference :as reference-scene]))
 
-(defn logo []
+(defn header []
   [:div.container
    [:header
     [:a.logo
      [:span.logo__icon]
      [:span.logo__text "Status"
       [:span.logo__text__greyed "Developer Center"]]]]])
+
+(defn footer []
+  [:div.container
+   [:footer
+    [:div.copyright
+     [:p [:strong "Status Research & Development"]]
+     [:p "GmbH Baarerstrasse 10"]
+     [:p "Zug, Switzerland"]]]])
 
 (defn scene []
   (let [page-id (re-frame/subscribe [:get-page-id])
@@ -19,11 +27,12 @@
       (let [popup-opened? (and (= @page-id :guide)
                                (:ref @params))]
         [:div
-         [logo]
+         [header]
          [:div.container
           (case @page-id
             :index [index-scene/scene]
             :guide [guide-scene/scene]
             :reference [reference-scene/scene])]
+         [footer]
          (when popup-opened?
            [reference-scene/ref-popup])]))))

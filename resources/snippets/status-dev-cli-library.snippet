@@ -1,0 +1,20 @@
+var StatusDev = require('status-dev-cli');
+var statusDev = new StatusDev({ip: 'you-device-ip'});
+
+dataData = {
+  "whisper-identity": "dapp-MyAppName",
+  "dapp-url": "http://your-server-ip:port",
+  "name": "My App Name"
+}
+
+statusDev.addContact(dappData, function(error, result) {});
+
+statusDev.refreshContact(dappData, function(error, result) {});
+
+statusDev.removeContact(dappData, function(error, result) {});
+
+statusDev.switchNode(rpcUrl, function(error, result) {});
+
+statusDev.listDApps(function(error, result) {});
+
+statusDev.getLog(identity, function(error, result) {});

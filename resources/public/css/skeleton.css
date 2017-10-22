@@ -131,18 +131,18 @@ body {
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
+  margin-top: 3rem;
   margin-bottom: 2rem;
   font-weight: 400; }
 h1 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
-h2 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
-h3 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+h2 { font-size: 2.0rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h3 { font-size: 1.8rem; line-height: 1.6;  letter-spacing: 0; }
 
 /* Larger than phablet */
 @media (min-width: 550px) {
   h1 { font-size: 3.0rem; }
   h2 { font-size: 2.4rem; }
-  h3 { font-size: 1.5rem; }
+  h3 { font-size: 1.8rem; }
 }
 
 p {
@@ -296,7 +296,7 @@ ol ul {
   margin: 1.5rem 0 1.5rem 3rem;
   font-size: 90%; }
 li {
-  margin-bottom: 1rem; }
+  margin-bottom: 0.5rem; }
 
 
 /* Code
@@ -346,7 +346,7 @@ p,
 ul,
 ol,
 form {
-  margin-bottom: 2.5rem; }
+  margin-bottom: 1.2rem; }
 
 
 /* Utilities

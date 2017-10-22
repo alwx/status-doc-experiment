@@ -22,7 +22,7 @@
   [(string/replace text
                    #"\!\[snippets\/(\S*)\s(\S*)]"
                    (fn [res]
-                     (str "<pre><code class=\"code-block " (res 2) "\">"
+                     (str "<pre><code class=\"" (res 2) "\">"
                           (some-> (res 1)
                                   (read-snippet)
                                   (transform-snippet))
@@ -49,7 +49,8 @@
                [id (merge r {:html     (some-> (str "references" (str link-prefix id) ".md")
                                                (resource)
                                                (slurp)
-                                               (md/md-to-html-string))
+                                               (md/md-to-html-string
+                                                :replacement-transformers guides-transformers))
                              :children (load-refs (str link-prefix id "/") children)})]))))
 
 (defmacro defrefs
