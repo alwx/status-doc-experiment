@@ -27,7 +27,7 @@
 
       :reagent-render
       (fn []
-        (let [name (string/replace (:name @params) #"\+" " / ")
+        (let [name (string/replace (:name @params) #"\+" ".")
               html (or (extract-from-dict (-> (:name @params)
                                               (string/split #"\+")))
                        (reagent/render-component-to-string [not-found]))]

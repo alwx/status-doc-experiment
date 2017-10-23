@@ -181,6 +181,11 @@ div.gray-column ul li.level-3 {
     margin-left: 48px;
 }
 
+div.gray-column div.separator {
+    margin: 10px 0;
+    border-top: 1px solid #fff;
+}
+
 pre code a {
     text-decoration: none;
     cursor: pointer;

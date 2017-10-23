@@ -11,7 +11,7 @@
 
 (defn transform-snippet [snippet]
   (string/replace snippet
-                  #"\$(.*)\$"
+                  #"\$([^\$]*)\$"
                   (fn [[_ link-arg]]
                     (let [[link-text link-path] (string/split link-arg #"#")]
                       (str "<a href=\"#/%ref-link%/" (string/replace link-path #"\/" "+") "\">"
@@ -46,12 +46,13 @@
   [link-prefix refs]
   (->> refs
        (mapv (fn [{:keys [id children] :as r}]
-               [id (merge r {:html     (some-> (str "references" (str link-prefix id) ".md")
-                                               (resource)
-                                               (slurp)
-                                               (md/md-to-html-string
-                                                :replacement-transformers guides-transformers))
-                             :children (load-refs (str link-prefix id "/") children)})]))))
+               [id (merge r (when id
+                              {:html     (some-> (str "references" (str link-prefix id) ".md")
+                                                 (resource)
+                                                 (slurp)
+                                                 (md/md-to-html-string
+                                                  :replacement-transformers guides-transformers))
+                               :children (load-refs (str link-prefix id "/") children)}))]))))
 
 (defmacro defrefs
   [symbol-name doc-files]

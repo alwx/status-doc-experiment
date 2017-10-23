@@ -6,13 +6,15 @@
   ([refs]
    (reference-links "" 0 refs))
   ([prefix level refs]
-   (for [[_ {:keys [id children]}] refs]
-     ^{:key (str "ref-" id)}
-     [:div
-      [:li
-       {:class (str "level-" level)}
-       [:a {:href (str "#/ref/" (string/replace (str prefix id) #"/" "+"))} id]]
-      (reference-links (str prefix id "/") (inc level) children)])))
+   (for [[_ {:keys [id type children]}] refs]
+     ^{:key (str "ref-" prefix "-" id "-" level)}
+     (if (= type "separator")
+       [:div.separator]
+       [:div
+        [:li
+         {:class (str "level-" level)}
+         [:a {:href (str "#/ref/" (string/replace (str prefix id) #"/" "+"))} id]]
+        (reference-links (str prefix id "/") (inc level) children)]))))
 
 (defn scene []
   [:section.content

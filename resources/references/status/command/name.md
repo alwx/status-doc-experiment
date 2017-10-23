@@ -1,5 +1,6 @@
 The name of your command. Should consist of letters and digits. Special symbols are allowed (except `/` and `@`), 
-but it's not recommended to use them because users can execute commands by typing their names manually.
+but it's not recommended to use them — users can execute commands by typing their names manually, thus it makes sense
+to make names as simple as possible.
 
 ## Good names
 

@@ -1,0 +1,14 @@
+$status#status$.$command#status/command$({
+    $name#status/command/name$: "hello",
+    $title#status/command/title$: "Hello Bot",
+    $description#status/command/description$: "Helps you say hello",
+    $color#status/command/color$: "#CCCCCC",
+    $preview#status/command/preview$: function (params) {
+        var text = status.$components#status/components$.$text#status/components/text$(
+            {},
+            "Hello from the other side!"
+        );
+
+        return {markup: status.components.$view#status/components/view$({}, [text])};
+    }
+});

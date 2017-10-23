@@ -1,0 +1,1 @@
+A special object that contains Status API methods, UI components, definitions of events and actions.

@@ -15,11 +15,16 @@
                    "12-localization"
                    "13-status-dev-cli"])
 
-(defrefs refs [{:id       "command"
-                :children [{:id "name"}
-                           {:id "title"}
-                           {:id "description"}]}
-               {:id "status-dev-cli"
+(defrefs refs [{:id       "status"
+                :children [{:id       "command"
+                            :children [{:id "name"}
+                                       {:id "title"}
+                                       {:id "description"}]}
+                           {:id       "components"
+                            :children [{:id "text"}
+                                       {:id "view"}]}]}
+               {:type "separator"}
+               {:id       "status-dev-cli"
                 :children [{:id "scan"}
                            {:id "add"}
                            {:id "remove"}

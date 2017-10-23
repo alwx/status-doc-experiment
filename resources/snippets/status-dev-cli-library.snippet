@@ -7,14 +7,14 @@ dataData = {
   "name": "My App Name"
 }
 
-statusDev.addContact(dappData, function(error, result) {});
+statusDev.$addContact#status-dev-cli/add$(dappData, function(error, result) {});
 
-statusDev.refreshContact(dappData, function(error, result) {});
+statusDev.$removeContact#status-dev-cli/remove$(dappData, function(error, result) {});
 
-statusDev.removeContact(dappData, function(error, result) {});
+statusDev.$refreshContact#status-dev-cli/refresh$(dappData, function(error, result) {});
 
-statusDev.switchNode(rpcUrl, function(error, result) {});
+statusDev.$switchNode#status-dev-cli/switch-node$(rpcUrl, function(error, result) {});
 
-statusDev.listDApps(function(error, result) {});
+statusDev.$listDApps#status-dev-cli/list$(function(error, result) {});
 
-statusDev.getLog(identity, function(error, result) {});
+statusDev.$getLog#status-dev-cli/log$(identity, function(error, result) {});
