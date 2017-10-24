@@ -39,7 +39,7 @@
                ;; production. You can build this with:
                ;; lein cljsbuild once min
                {:id "min"
-                :source-paths ["src/cljs"]
+                :source-paths ["src"]
                 :compiler {:output-to "resources/public/js/compiled/status_doc.js"
                            :main status-doc.core
                            :optimizations :advanced
