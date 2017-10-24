@@ -9,9 +9,21 @@
 
 (re-frame/reg-event-db
  :set-page
- (fn [db [_ id params]]
-   (assoc db :page {:id     id
-                    :params params})))
+ (fn [{:keys [page history] :as db} [_ id params]]
+   (let [new-page    {:id     id
+                      :params params}
+         going-back? (= new-page (second history))]
+     (cond-> db
+
+             going-back?
+             (update :history rest)
+
+             (not going-back?)
+             (update :history conj new-page)
+
+             true
+             (assoc :page {:id     id
+                           :params params})))))
 
 (re-frame/reg-event-db
  :set-token

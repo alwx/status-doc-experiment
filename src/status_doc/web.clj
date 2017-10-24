@@ -13,8 +13,9 @@
   (string/replace snippet
                   #"\$([^\$]*)\$"
                   (fn [[_ link-arg]]
-                    (let [[link-text link-path] (string/split link-arg #"#")]
-                      (str "<a href=\"#/%ref-link%/" (string/replace link-path #"\/" "+") "\">"
+                    (let [[link-text link-path] (string/split link-arg #"#")
+                          link-path (string/replace link-path #"\/" "+")]
+                      (str "<a href=\"#/ref/" link-path "\">"
                            link-text
                            "</a>")))))
 

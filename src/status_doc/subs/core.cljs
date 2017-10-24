@@ -12,6 +12,11 @@
    (get-in db [:page :params])))
 
 (reg-sub
+ :get-history
+ (fn [db _]
+   (get db :history)))
+
+(reg-sub
  :get-token
  (fn [db _]
    (get db :token)))

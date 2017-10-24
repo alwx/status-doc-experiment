@@ -66,7 +66,7 @@ status-dev-cli add '{"whisper-identity": "dapp-test", "dapp-url": "http://localh
 * Optional: Execute this line to start automatically refreshing your DApp in Status browser when you change the DApp's code:
 
 ```makefile
-status-dev-cli watch-dapp . '{"whisper-identity": "dapp-test"}' --ip <DEVICE IP>`
+status-dev-cli watch-dapp . '{"whisper-identity": "dapp-test"}' --ip <DEVICE IP>
 ```
 
 ## Using status-dev-cli as a library

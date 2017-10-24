@@ -9,17 +9,14 @@
 
 (secretary/set-config! :prefix "#")
 
-(defroute "/" {:as params}
+(defroute index-route "/" []
   (re-frame/dispatch [:set-page :index]))
 
-(defroute "/guides/:name" {:as params}
-  (re-frame/dispatch [:set-page :guide params]))
+(defroute guide-route "/guides/:name" [name]
+  (re-frame/dispatch [:set-page :guide {:name name}]))
 
-(defroute "/guides/:name/:ref" {:as params}
-  (re-frame/dispatch [:set-page :guide params]))
-
-(defroute "/ref/:name" {:as params}
-  (re-frame/dispatch [:set-page :reference params]))
+(defroute ref-route "/ref/:name" [name]
+  (re-frame/dispatch [:set-page :reference {:name name}]))
 
 (defn app-routes []
   (doto (History.)

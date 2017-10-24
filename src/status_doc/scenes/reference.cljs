@@ -2,7 +2,8 @@
   (:require [clojure.string :as string]
             [reagent.core :as reagent]
             [re-frame.core :as re-frame]
-            [status-doc.dict :as dict]))
+            [status-doc.dict :as dict]
+            [status-doc.utils :as utils]))
 
 (defn- extract-from-dict
   ([path dict]
@@ -17,7 +18,8 @@
   [:p "Not found. Please, return back to the index page."])
 
 (defn scene []
-  (let [params (re-frame/subscribe [:get-page-params])]
+  (let [params  (re-frame/subscribe [:get-page-params])
+        history (re-frame/subscribe [:get-history])]
     (reagent/create-class
      {:component-did-mount
       (fn []
@@ -33,26 +35,8 @@
                        (reagent/render-component-to-string [not-found]))]
           [:section.content
            [:div.title
-            [:a {:href "/#"}
+            [:a {:href (utils/link-back @history)}
              [:img {:src "/img/back.svg"}]]
             [:h1 name]]
            [:div.doc
             {:dangerouslySetInnerHTML {:__html html}}]]))})))
-
-(defn ref-popup []
-  (let [params (re-frame/subscribe [:get-page-params])]
-    (fn []
-      (let [{params-name :name
-             params-ref  :ref} @params]
-        (let [name (string/replace params-ref #"\+" " / ")
-              html (or (extract-from-dict (string/split params-ref #"\+"))
-                       (reagent/render-component-to-string [not-found]))]
-          [:div.popup-container
-           [:div.popup.container
-            [:section.content
-             [:div.title
-              [:h1 name]
-              [:a {:href (str "/#/guides/" params-name)}
-               [:img {:src "/img/close.svg"}]]]
-             [:div.doc
-              {:dangerouslySetInnerHTML {:__html html}}]]]])))))

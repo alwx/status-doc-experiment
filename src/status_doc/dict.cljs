@@ -20,10 +20,19 @@
                             :children [{:id "name"}
                                        {:id "title"}
                                        {:id "description"}]}
+                           {:id "response"}
+                           {:id "addListener"}
+                           {:id "localizeNumber"}
+                           {:id       "types"
+                            :children [{:id "TEXT"}
+                                       {:id "NUMBER"}
+                                       {:id "PHONE"}
+                                       {:id "PASSWORD"}]}
                            {:id       "components"
                             :children [{:id "text"}
                                        {:id "view"}]}]}
-               {:type "separator"}
+               {:type "separator"
+                :id   "sep1"}
                {:id       "status-dev-cli"
                 :children [{:id "scan"}
                            {:id "add"}

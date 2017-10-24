@@ -24,15 +24,12 @@
   (let [page-id (re-frame/subscribe [:get-page-id])
         params  (re-frame/subscribe [:get-page-params])]
     (fn []
-      (let [popup-opened? (and (= @page-id :guide)
-                               (:ref @params))]
-        [:div
-         [header]
-         [:div.container
-          (case @page-id
-            :index [index-scene/scene]
-            :guide [guide-scene/scene]
-            :reference [reference-scene/scene])]
-         [footer]
-         (when popup-opened?
-           [reference-scene/ref-popup])]))))
+      [:div
+       [header]
+       [:div.container
+        (case @page-id
+          :index [index-scene/scene]
+          :guide [guide-scene/scene]
+          :reference [reference-scene/scene]
+          nil)]
+       [footer]])))
