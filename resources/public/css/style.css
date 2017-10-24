@@ -144,12 +144,18 @@ section.content code.hljs {
 }
 
 div.gray-column {
-    background: #eef2f5;
+    background: white;
     border-radius: 10px;
     padding: 16px;
-    min-height: 600px;
-    max-height: 600px;
-    overflow-y: scroll;
+}
+
+@media (min-width: 550px) {
+    div.gray-column {
+        min-height: 600px;
+        max-height: 600px;
+        overflow-y: scroll;
+        background: #eef2f5;
+    }
 }
 
 div.gray-column h1 {
